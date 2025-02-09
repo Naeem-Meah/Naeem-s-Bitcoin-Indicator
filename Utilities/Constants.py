@@ -16,7 +16,7 @@ class Constants:
     WINDOW_SIZE = 30
     BATCH_SIZE = 16
     SPLIT_INDEX = 0.95
-    INPUT_DIM = 17
+    INPUT_DIM = 16
     HIDDEN_DIM = 512
     NUM_LAYERS = 4
     OUTPUT_DIM = 1
