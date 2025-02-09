@@ -1,0 +1,67 @@
+Data to train model on:
+
+1. Time Information:
+
+    Calendar Date 
+        YYYY-MM-DD Format
+
+2. Raw Market Data:
+
+    Open Price
+        Price at which Bitcoin begins trading on that day
+
+    High Price
+        Highest traded price during the day
+
+    Low Price
+        The lowest price traded during the day
+
+    Close Price
+        The final traded price of the day
+
+    Trading Volume
+        The total traded volume during the day
+
+3. Market Share Data:
+
+    Bitcoin Dominance
+        Percentage of Bitcoin's market capitalisation relative to the total cryptocurrency market cap
+
+4. Technical Indicators:
+
+    Moving Averages
+        5-Day SMA
+            Simple Moving Average of the close price over the last 5 days
+        20-Day SMA
+            Simple Moving Average of the close price over the last 20 days
+
+    14-Day RSI
+        A momentum oscillator ranging from 0-100 calculated over 14 days
+
+    MACD (Moving Average Convergence Divergence)
+        MACD Line
+            Difference between the 12-Day EMA and 26-Day EMA of the close price
+        MACD Signal Line
+            9-day EMA of the MACD Line
+        MACD Histogram
+            The difference between the MACD line and the signal line
+
+    Average True Range
+        14-Day ATR
+            A measure of fthe average daily price range over 14 days
+    
+    Bollinger Bands
+        Middle Band
+            The 20-day SMA
+        Upper Band
+            The middle band plus 2x the 20-day standard deviation of the close price
+        Lower Band
+            The middle band minus 2x the 20-day standard deviation of the close price
+
+5. Sentiment Indicators:
+
+    Crypto Fear & Greed Index
+
+6. Target Variables
+
+    Next-Day Close Price (as a % change)
