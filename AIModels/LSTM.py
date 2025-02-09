@@ -4,12 +4,14 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import StandardScaler
+from Utilities.Constants import Constants
+
 # ==========================
 # 1. Data Preprocessing
 # ==========================
 
 # Specify your CSV file name (ensure the file is in your working directory)
-CSV_FILE = 'csv/indicator_bitcoin_data.csv'
+CSV_FILE = Constants.INDICATOR_CSV_FILENAME
 
 # Read the CSV file and parse dates
 df = pd.read_csv(CSV_FILE)
@@ -40,7 +42,7 @@ df[feature_cols] = scaler.fit_transform(df[feature_cols])
 # ==========================
 
 # We'll use a sliding window of a fixed number of days to predict the next day's target.
-window_size = 30  # Use the previous x days to predict the next day's move
+window_size = Constants.WINDOW_SIZE  # Use the previous x days to predict the next day's move
 
 class BitcoinDataset(Dataset):
     def __init__(self, dataframe, feature_cols, window_size):
@@ -64,14 +66,14 @@ class BitcoinDataset(Dataset):
         return sequence, label
 
 # Split the data into train and test sets (80/20 split, in chronological order)
-split_idx = int(len(df) * 0.95)
+split_idx = int(len(df) * Constants.SPLIT_INDEX)
 train_df = df.iloc[:split_idx].reset_index(drop=True)
 test_df = df.iloc[split_idx:].reset_index(drop=True)
 
 train_dataset = BitcoinDataset(train_df, feature_cols, window_size)
 test_dataset = BitcoinDataset(test_df, feature_cols, window_size)
 
-batch_size = 16
+batch_size = Constants.BATCH_SIZE
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 test_loader  = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
@@ -106,12 +108,12 @@ class BitcoinLSTM(nn.Module):
         return out
 
 # Hyperparameters
-input_dim = len(feature_cols)  # number of features per day
-hidden_dim = 512
-num_layers = 4
-output_dim = 1
-num_epochs = 200
-learning_rate = 0.0001
+input_dim = Constants.INPUT_DIM  # number of features per day
+hidden_dim = Constants.HIDDEN_DIM
+num_layers = Constants.NUM_LAYERS
+output_dim = Constants.OUTPUT_DIM
+num_epochs = Constants.NUM_EPOCHS
+learning_rate = Constants.LEARNING_RATE
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = BitcoinLSTM(input_dim, hidden_dim, num_layers, output_dim).to(device)
