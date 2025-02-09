@@ -1,6 +1,6 @@
 import yfinance as yf
 import pandas as pd
-from Constants import Constants
+from Utilities.Constants import Constants
 
 class BitcoinOHLCVData:
     def __init__(self):

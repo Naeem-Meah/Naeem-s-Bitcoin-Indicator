@@ -4,13 +4,12 @@ import torch
 import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import StandardScaler
-
 # ==========================
 # 1. Data Preprocessing
 # ==========================
 
 # Specify your CSV file name (ensure the file is in your working directory)
-CSV_FILE = 'indicator_bitcoin_data.csv'
+CSV_FILE = 'csv/indicator_bitcoin_data.csv'
 
 # Read the CSV file and parse dates
 df = pd.read_csv(CSV_FILE)

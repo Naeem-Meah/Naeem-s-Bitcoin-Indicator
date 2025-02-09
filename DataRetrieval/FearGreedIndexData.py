@@ -3,7 +3,7 @@ import json
 import numpy as np
 import pandas as pd
 from datetime import datetime, timezone
-from Constants import Constants
+from Utilities.Constants import Constants
 
 class FearGreedIndexData:
     def __init__(self):

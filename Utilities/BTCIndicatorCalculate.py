@@ -1,6 +1,6 @@
 import pandas as pd
 import ta
-from Constants import Constants
+from Utilities.Constants import Constants
 
 class BTCIndicatorCalculate:
     def __init__(self):

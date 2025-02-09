@@ -1,6 +1,6 @@
-from BitcoinOHLCVData import BitcoinOHLCVData
-from FearGreedIndexData import FearGreedIndexData
-from Constants import Constants
+from DataRetrieval.BitcoinOHLCVData import BitcoinOHLCVData
+from DataRetrieval.FearGreedIndexData import FearGreedIndexData
+from Utilities.Constants import Constants
 
 class BTCDataRetrieve:
     def __init__(self):
