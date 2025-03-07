@@ -69,8 +69,8 @@ run the LSTM.py file
 - Doesn't work with live trading platforms for automated execution.
 - Only takes into account technical analysis data and basic market sentiment,should include broader market conditions and macroeconomic data.
 - Machine Learning hyperparameters are eyeballed and general practise in the Constants.py, and have no real optimised values.
-- Stores very basic, daily market data in a simple csv file. Not nearly as extensive as it should be, and should use a more formal database like KDB.
 - Innacurate model which is only slightly more advantageous than a coin toss.
+- Lacks high-quality, cleaned and high-resolution data. Simply uses daily data and stores in a CSV file rather than KDB.
 
 ## 👍 Pros
 - A cool demonstration on how Machine Learning models can give a slight edge by looking at past data.
